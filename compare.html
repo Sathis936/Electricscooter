@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compare electric scooter and e-bike specifications side-by-side. Calculate your monthly fuel savings in Rupees and carbon offset with EcoRide Hub.">
+  <title>Compare Models &amp; Savings Calculator | EcoRide Hub</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="alternate icon" href="assets/images/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    (function() {
+      var t = localStorage.getItem('ecoride_theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+      var d = localStorage.getItem('ecoride_dir');
+      if (d) document.documentElement.setAttribute('dir', d);
+    })();
+  </script>
+</head>
+<body>
+  <div class="site-shell">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <!-- STICKY NAVBAR - PROPERLY ALIGNED -->
+    <header class="site-header">
+      <div class="container header-bar">
+        <a class="brand" href="index.html" aria-label="EcoRide Hub home">
+          <span class="brand-mark">
+            <img src="assets/images/logo.svg" alt="EcoRide Hub Logo" class="brand-logo-img">
+          </span>
+          <div class="brand-text">
+            <span class="brand-title">EcoRide <span>Hub</span></span>
+            <span class="brand-sub">Smart Electric Mobility</span>
+          </div>
+        </a>
+
+        <nav class="site-nav" aria-label="Main navigation" data-site-nav>
+          <div class="nav-dropdown" data-nav-dropdown>
+            <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" data-dropdown-toggle>
+              <span>Home</span>
+              <span class="dropdown-arrow">â–¾</span>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="index.html" class="nav-dropdown-item" role="menuitem">
+                <div class="dropdown-item-header">
+                  <span class="dropdown-item-title">Home 1 &mdash; Urban Commuters</span>
+                  <span class="dropdown-item-tag">Flagship</span>
+                </div>
+                <p class="dropdown-item-desc">Smart cockpit display, daily commuter fleet &amp; specs</p>
+              </a>
+              <a href="home-2.html" class="nav-dropdown-item" role="menuitem">
+                <div class="dropdown-item-header">
+                  <span class="dropdown-item-title">Home 2 &mdash; Hyper Performance</span>
+                  <span class="dropdown-item-tag tag-hyper">New</span>
+                </div>
+                <p class="dropdown-item-desc">Dual-motor power, fast charging hubs &amp; 2026 fleet</p>
+              </a>
+            </div>
+          </div>
+          <a href="products.html">Models</a>
+          <a class="active" href="compare.html">Compare</a>
+          <a href="about.html">About &amp; Tech</a>
+          <a href="booking.html">Test Ride</a>
+          <a href="contact.html">Contact</a>
+          <div class="nav-util-group">
+            <button type="button" class="nav-btn-util" id="rtl-toggle" aria-label="Toggle RTL layout" title="Switch text direction (RTL / LTR)">
+              <span class="util-text" id="rtl-text">RTL</span>
+            </button>
+            <button type="button" class="nav-btn-util" id="theme-toggle" aria-label="Toggle dark/light theme" title="Toggle dark / light theme">
+              <span class="theme-icon" id="theme-icon">&#127769;™</span>
+            </button>
+          </div>
+        </nav>
+
+        <div class="header-actions">
+          <a class="button button-nav" href="booking.html">Book a Ride</a>
+          <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- HERO SECTION WITH BACKGROUND IMAGE -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-panel hero-compare" style="background-image: url('assets/images/hero-compare.jpg');">
+            <div class="hero-content">
+              <div class="hero-badge-row">
+                <span class="eyebrow">
+                  <span class="eyebrow-dot"></span>
+                  Specification Matrix &bull; Live Fuel Simulator &bull; Data-Driven Choice
+                </span>
+                <span class="hero-status-pill"><span>â—�</span> Technical Evaluation Tool</span>
+              </div>
+              <h1>Compare Models &amp; Calculate Your <span class="gradient-text">Daily Fuel Savings</span>.</h1>
+              <p>Compare battery capacity, speed limits, motor output, and charging times side-by-side. Adjust our live commute calculator to see how quickly your electric vehicle pays for itself in Indian Rupees.</p>
+              <div class="hero-actions">
+                <a class="button" href="#calculator">Launch Savings Calculator</a>
+                <a class="button-secondary" href="#comparison-matrix">View Full Specs Table</a>
+              </div>
+              <div class="hero-stats">
+                <div class="stat-card">
+                  <strong>Side-by-Side</strong>
+                  <span>Head-to-Head Specs</span>
+                </div>
+                <div class="stat-card">
+                  <strong>&#8377; Rupee Tool</strong>
+                  <span>Interactive Simulator</span>
+                </div>
+                <div class="stat-card">
+                  <strong>100% Verified</strong>
+                  <span>Real-World Tested Metrics</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERACTIVE SAVINGS CALCULATOR IN RUPEES -->
+      <section class="section" id="calculator">
+        <div class="container">
+          <div class="section-heading">
+            <span class="badge-tag">Interactive Tool</span>
+            <h2>Commuter Savings &amp; Carbon Calculator</h2>
+            <p>Slide your daily commute distance and local petrol pump price to see how much cash and carbon dioxide you save by switching to electric.</p>
+          </div>
+
+          <div class="calculator-panel">
+            <div class="calc-controls">
+              <div class="calc-field">
+                <label for="calc-dist">
+                  <span>Daily Roundtrip Distance:</span>
+                  <span id="calc-dist-val">25 km</span>
+                </label>
+                <input class="calc-slider" id="calc-dist" type="range" min="5" max="60" value="25" step="1">
+                <small style="color: var(--muted);">Average Indian city commuter travels 15&ndash;30 km roundtrip.</small>
+              </div>
+
+              <div class="calc-field">
+                <label for="calc-fuel">
+                  <span>Current Petrol Price:</span>
+                  <span id="calc-fuel-val">&#8377;104/L</span>
+                </label>
+                <input class="calc-slider" id="calc-fuel" type="range" min="90" max="125" value="104" step="1">
+                <small style="color: var(--muted);">Based on metro unleaded petrol pump averages (&#8377;100&ndash;&#8377;110/L).</small>
+              </div>
+
+              <div class="calc-field">
+                <label for="calc-days">Weekly Commute Days:</label>
+                <select id="calc-days" style="padding: 0.75rem 1rem; border-radius: var(--radius-md); border: 1.5px solid var(--border);">
+                  <option value="5" selected>5 Days / Week (Standard workweek)</option>
+                  <option value="6">6 Days / Week (Extended workweek)</option>
+                  <option value="7">7 Days / Week (Everyday mobility)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="calc-results-card">
+              <h3>Your Projected EV Savings</h3>
+              <div class="calc-metric-row">
+                <div class="calc-metric">
+                  <small>Monthly Savings</small>
+                  <strong id="calc-monthly-savings">&#8377;4,850</strong>
+                </div>
+                <div class="calc-metric">
+                  <small>Annual Savings</small>
+                  <strong id="calc-annual-savings">&#8377;58,200</strong>
+                </div>
+              </div>
+              <div class="calc-metric-row">
+                <div class="calc-metric">
+                  <small>CO2 Prevented / Yr</small>
+                  <strong id="calc-co2-savings">472 kg</strong>
+                </div>
+                <div class="calc-metric">
+                  <small>Payback Period</small>
+                  <strong id="calc-payback">6.5 mo</strong>
+                </div>
+              </div>
+              <div style="font-size: 0.82rem; color: rgba(255, 255, 255, 0.75); line-height: 1.5; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 0.75rem;">
+                *Assumes 35 km/L petrol mileage vs &#8377;8/kWh home electricity charging (under &#8377;12 per full charge). The scooter pays for itself in approximately 6 to 7 months!
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SPECIFICATION MATRIX IN RUPEES -->
+      <section class="section section-alt" id="comparison-matrix">
+        <div class="container">
+          <div class="section-heading">
+            <span class="badge-tag">Technical Specs</span>
+            <h2>Side-by-Side Model Comparison</h2>
+            <p>Scroll horizontally to contrast parameters across all popular categories.</p>
+          </div>
+
+          <div class="compare-table-wrapper">
+            <table class="compare-table">
+              <thead>
+                <tr>
+                  <th>Specification</th>
+                  <th>Swift Fold S2</th>
+                  <th class="highlight-col">Comet Urban Pro â­�</th>
+                  <th>Volt Aero X</th>
+                  <th>City Lite Go</th>
+                  <th>Metro Glide 500</th>
+                  <th>Trail Current X</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Vehicle Category</td>
+                  <td>Ultra-Portable E-Scooter</td>
+                  <td class="highlight-col"><strong>City Commuter E-Scooter</strong></td>
+                  <td>Dual-Motor Hyper Scooter</td>
+                  <td>Entry E-Scooter</td>
+                  <td>Step-Through E-Bike</td>
+                  <td>Hybrid Mountain E-Bike</td>
+                </tr>
+                <tr>
+                  <td>Price (Ex-Showroom)</td>
+                  <td><strong>&#8377;64,999</strong></td>
+                  <td class="highlight-col"><strong style="color: var(--primary); font-size: 1.15rem;">&#8377;89,999</strong></td>
+                  <td><strong>&#8377;1,39,999</strong></td>
+                  <td><strong>&#8377;49,999</strong></td>
+                  <td><strong>&#8377;1,29,999</strong></td>
+                  <td><strong>&#8377;1,69,999</strong></td>
+                </tr>
+                <tr>
+                  <td>Real-World Range</td>
+                  <td>38 km</td>
+                  <td class="highlight-col"><strong>65 km</strong></td>
+                  <td>95 km</td>
+                  <td>28 km</td>
+                  <td>58 km</td>
+                  <td>102 km</td>
+                </tr>
+                <tr>
+                  <td>Top Speed</td>
+                  <td>25 km/h</td>
+                  <td class="highlight-col"><strong>38 km/h</strong></td>
+                  <td>45 km/h</td>
+                  <td>25 km/h</td>
+                  <td>32 km/h</td>
+                  <td>42 km/h</td>
+                </tr>
+                <tr>
+                  <td>Motor Output</td>
+                  <td>350W Front Hub</td>
+                  <td class="highlight-col"><strong>500W Rear Hub (750W Peak)</strong></td>
+                  <td>Dual 600W (1600W Peak)</td>
+                  <td>250W Front Hub</td>
+                  <td>500W Mid-Torque</td>
+                  <td>750W Bafang Ultra</td>
+                </tr>
+                <tr>
+                  <td>Battery Pack</td>
+                  <td>36V 280Wh Li-ion</td>
+                  <td class="highlight-col"><strong>48V 624Wh LG Cells</strong></td>
+                  <td>52V 1040Wh Samsung</td>
+                  <td>36V 216Wh</td>
+                  <td>48V 576Wh Samsung</td>
+                  <td>48V 840Wh LG Ultra</td>
+                </tr>
+                <tr>
+                  <td>Charging Time</td>
+                  <td>3.5 hours</td>
+                  <td class="highlight-col"><strong>4.5 hours</strong></td>
+                  <td>6.0 hours (Fast: 3h)</td>
+                  <td>3.0 hours</td>
+                  <td>4.0 hours</td>
+                  <td>5.5 hours</td>
+                </tr>
+                <tr>
+                  <td>Total Weight</td>
+                  <td>12.8 kg</td>
+                  <td class="highlight-col"><strong>17.5 kg</strong></td>
+                  <td>26.2 kg</td>
+                  <td>11.5 kg</td>
+                  <td>22.4 kg</td>
+                  <td>24.8 kg</td>
+                </tr>
+                <tr>
+                  <td>Max Payload</td>
+                  <td>100 kg</td>
+                  <td class="highlight-col"><strong>120 kg</strong></td>
+                  <td>140 kg</td>
+                  <td>90 kg</td>
+                  <td>135 kg</td>
+                  <td>150 kg</td>
+                </tr>
+                <tr>
+                  <td>Braking System</td>
+                  <td>Drum + E-ABS</td>
+                  <td class="highlight-col"><strong>Dual Disc + KERS Regen</strong></td>
+                  <td>Dual Hydraulic Disc</td>
+                  <td>Rear Foot + Electronic</td>
+                  <td>Hydraulic Disc</td>
+                  <td>Quad-Piston Hydraulic</td>
+                </tr>
+                <tr>
+                  <td>Tires / Suspension</td>
+                  <td>8.5" Solid / Front spring</td>
+                  <td class="highlight-col"><strong>10" Air / Dual Hydraulic</strong></td>
+                  <td>10.5" Offroad / Full Coil</td>
+                  <td>8.0" Solid Honeycomb</td>
+                  <td>27.5" Kenda Puncture-Guard</td>
+                  <td>29" Maxxis All-Terrain</td>
+                </tr>
+                <tr>
+                  <td>Water Resistance</td>
+                  <td>IP54 Splash-proof</td>
+                  <td class="highlight-col"><strong>IP67 Submersible Rated</strong></td>
+                  <td>IP66 Heavy Rain</td>
+                  <td>IP54 Light Rain</td>
+                  <td>IP65 Weatherproof</td>
+                  <td>IP67 Mud &amp; River Rain</td>
+                </tr>
+                <tr>
+                  <td>App Connectivity</td>
+                  <td>Bluetooth Basic</td>
+                  <td class="highlight-col"><strong>GPS + App + Anti-Theft Lock</strong></td>
+                  <td>GPS + App + Telemetry</td>
+                  <td>&mdash;</td>
+                  <td>Bluetooth Display</td>
+                  <td>Color TFT + Bluetooth</td>
+                </tr>
+                <tr>
+                  <td>Warranty</td>
+                  <td>2 Years</td>
+                  <td class="highlight-col"><strong>3 Years Comprehensive</strong></td>
+                  <td>3 Years</td>
+                  <td>1 Year</td>
+                  <td>3 Years</td>
+                  <td>3 Years</td>
+                </tr>
+                <tr>
+                  <td>Action</td>
+                  <td><a class="button button-sm button-secondary" href="booking.html">Test Ride</a></td>
+                  <td class="highlight-col"><a class="button button-sm" href="booking.html">Book Ride</a></td>
+                  <td><a class="button button-sm button-secondary" href="booking.html">Test Ride</a></td>
+                  <td><a class="button button-sm button-secondary" href="booking.html">Test Ride</a></td>
+                  <td><a class="button button-sm button-secondary" href="booking.html">Test Ride</a></td>
+                  <td><a class="button button-sm button-secondary" href="booking.html">Test Ride</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- GOVERNMENT SUBSIDIES & TAX INCENTIVES GUIDE -->
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="badge-tag">Financial Incentives</span>
+            <h2>State EV Subsidies &amp; Road Tax Waivers</h2>
+            <p>Save an additional &#8377;10,000 to &#8377;15,000 on purchase through clean transport policy rebates.</p>
+          </div>
+          <div class="grid grid-3">
+            <article class="card feature-card">
+              <div class="card-media-top">
+                <img src="assets/images/incentive-road-tax.jpg" alt="Road-legal electric commuter scooter with zero road tax registration">
+              </div>
+              <h3>100% Road Tax Exemption</h3>
+              <p>Electric two-wheelers qualify for zero road tax and registration fee waivers in most states, saving &#8377;6,000&ndash;&#8377;10,000 upfront compared to petrol scooters.</p>
+            </article>
+            <article class="card feature-card">
+              <div class="card-media-top">
+                <img src="assets/images/incentive-tax-rebate.jpg" alt="Financial tax planning calculator and loan interest deduction paperwork">
+              </div>
+              <h3>Income Tax Rebate (Section 80EEB)</h3>
+              <p>Deduct up to &#8377;1,50,000 on interest paid on electric vehicle purchase loans, making monthly EMIs effectively cheaper than fuel.</p>
+            </article>
+            <article class="card feature-card">
+              <div class="card-media-top">
+                <img src="assets/images/incentive-charging.jpg" alt="Public smart EV scooter charging station with green energy tariff readout">
+              </div>
+              <h3>Subsidized EV Charging Tariffs</h3>
+              <p>Take advantage of dedicated concessional green electricity meter tariffs, powering your daily 30 km commute for under &#8377;10.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FREQUENTLY ASKED QUESTIONS -->
+      <section class="section section-alt">
+        <div class="container">
+          <div class="section-heading">
+            <span class="badge-tag">Clear Answers</span>
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about battery charging, legal road use, and ownership.</p>
+          </div>
+
+          <div class="faq-grid">
+            <details class="faq-item" open>
+              <summary class="faq-question">How is real-world battery range determined?</summary>
+              <div class="faq-answer">
+                We test all vehicles under realistic conditions: a 75 kg rider, ambient temperature of 28°C, riding on standard city asphalt at 20&ndash;25 km/h with 10 stoplights. Unlike lab treadmill figures, our published range matches what you will actually experience on city roads.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">Can I ride safely in heavy monsoon rain and waterlogged streets?</summary>
+              <div class="faq-answer">
+                Yes. Our flagship models like the Comet Urban Pro and Volt Aero X carry IP67 water ingress certification. All hub motors, controller harnesses, battery compartments, and dashboard displays are sealed against downpours and shallow road splashing.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">How much does a full recharge cost on my electricity bill?</summary>
+              <div class="faq-answer">
+                A typical 500Wh battery takes about 0.5 units (kWh) to charge completely. At typical domestic electricity rates (&#8377;6 to &#8377;8 per unit), a full recharge costs between &#8377;4 and &#8377;8. That is under &#8377;200 per month for daily commuting!
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">Do I need a driver's license or RTO registration?</summary>
+              <div class="faq-answer">
+                Vehicles limited to a maximum speed of 25 km/h with motor output up to 250W (like the Swift Fold S2 and City Lite Go) are classified as non-motorized micro-mobility and do not require RTO registration or a driver's license. High-speed models (over 25 km/h) require a standard driving license.
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEST RIDE PROMPT -->
+      <section class="section">
+        <div class="container" style="text-align: center;">
+          <h2 style="font-size: clamp(1.6rem, 2.8vw, 2.2rem); margin: 0 0 0.65rem; color: var(--text);">
+            Still Debating Between Two Models?
+          </h2>
+          <p style="max-width: 650px; margin: 0 auto 1.35rem; color: var(--muted); font-size: 1rem;">
+            Nothing beats real road feel. Schedule a back-to-back 30-minute test ride at our showroom and compare handling, brakes, and acceleration side-by-side.
+          </p>
+          <a class="button" href="booking.html">Book Back-to-Back Test Ride</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER - EQUAL ALIGNMENT -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand" href="index.html">
+            <span class="brand-mark">
+              <img src="assets/images/logo.svg" alt="EcoRide Hub Logo" class="brand-logo-img">
+            </span>
+            <div class="brand-text">
+              <span class="brand-title">EcoRide <span>Hub</span></span>
+              <span class="brand-sub">Smart Electric Mobility</span>
+            </div>
+          </a>
+          <p class="footer-desc">
+            Pioneering clean urban mobility with high-performance e-scooters, intelligent commuter e-bikes, and certified lifetime service care.
+          </p>
+          <div class="footer-socials" aria-label="EcoRide Social Media Links">
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="EcoRide Hub on X (formerly Twitter)" title="X (Twitter)">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="EcoRide Hub on Instagram" title="Instagram">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="EcoRide Hub on LinkedIn" title="LinkedIn">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="EcoRide Hub on Facebook" title="Facebook">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3>Explore Fleet</h3>
+          <ul class="footer-list">
+            <li><a href="products.html">All Electric Models</a></li>
+            <li><a href="products.html">Urban E-Scooters</a></li>
+            <li><a href="products.html">Commuter E-Bikes</a></li>
+            <li><a href="compare.html">Compare Specifications</a></li>
+            <li><a href="compare.html">Fuel Savings Calculator</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>About &amp; Care</h3>
+          <ul class="footer-list">
+            <li><a href="about.html">Our Eco Mission</a></li>
+            <li><a href="about.html">Battery Technology</a></li>
+            <li><a href="booking.html">Schedule Free Test Ride</a></li>
+            <li><a href="contact.html#showroom-map">Showroom Hours &amp; Map</a></li>
+            <li><a href="contact.html">Workshop Service Desk</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Showroom Hours</h3>
+          <ul class="footer-list">
+            <li>Mon - Fri: 9:30 AM - 7:00 PM</li>
+            <li>Saturday: 10:00 AM - 6:00 PM</li>
+            <li>Sunday: 11:00 AM - 4:00 PM</li>
+            <li>125 Green Avenue, Riverside</li>
+            <li>Tel: +1 (555) 024-8899</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p class="copyright-text">&copy; <span data-current-year></span> EcoRide Hub Inc. All rights reserved. Built for clean mobility.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

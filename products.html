@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse the full lineup of electric scooters and commuter e-bikes at EcoRide Hub. Filter by battery range, top speed, and lifestyle.">
+  <title>Models &amp; Catalog | EcoRide Hub</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="alternate icon" href="assets/images/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    (function() {
+      var t = localStorage.getItem('ecoride_theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+      var d = localStorage.getItem('ecoride_dir');
+      if (d) document.documentElement.setAttribute('dir', d);
+    })();
+  </script>
+</head>
+<body>
+  <div class="site-shell">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <!-- STICKY NAVBAR - PROPERLY ALIGNED -->
+    <header class="site-header">
+      <div class="container header-bar">
+        <a class="brand" href="index.html" aria-label="EcoRide Hub home">
+          <span class="brand-mark">
+            <img src="assets/images/logo.svg" alt="EcoRide Hub Logo" class="brand-logo-img">
+          </span>
+          <div class="brand-text">
+            <span class="brand-title">EcoRide <span>Hub</span></span>
+            <span class="brand-sub">Smart Electric Mobility</span>
+          </div>
+        </a>
+
+        <nav class="site-nav" aria-label="Main navigation" data-site-nav>
+          <div class="nav-dropdown" data-nav-dropdown>
+            <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" data-dropdown-toggle>
+              <span>Home</span>
+              <span class="dropdown-arrow">▾</span>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="index.html" class="nav-dropdown-item" role="menuitem">
+                <div class="dropdown-item-header">
+                  <span class="dropdown-item-title">Home 1 — Urban Commuters</span>
+                  <span class="dropdown-item-tag">Flagship</span>
+                </div>
+                <p class="dropdown-item-desc">Smart cockpit display, daily commuter fleet &amp; specs</p>
+              </a>
+              <a href="home-2.html" class="nav-dropdown-item" role="menuitem">
+                <div class="dropdown-item-header">
+                  <span class="dropdown-item-title">Home 2 — Hyper Performance</span>
+                  <span class="dropdown-item-tag tag-hyper">New</span>
+                </div>
+                <p class="dropdown-item-desc">Dual-motor power, fast charging hubs &amp; 2026 fleet</p>
+              </a>
+            </div>
+          </div>
+          <a class="active" href="products.html">Models</a>
+          <a href="compare.html">Compare</a>
+          <a href="about.html">About &amp; Tech</a>
+          <a href="booking.html">Test Ride</a>
+          <a href="contact.html">Contact</a>
+          <div class="nav-util-group">
+            <button type="button" class="nav-btn-util" id="rtl-toggle" aria-label="Toggle RTL layout" title="Switch text direction (RTL / LTR)">
+              <span class="util-text" id="rtl-text">RTL</span>
+            </button>
+            <button type="button" class="nav-btn-util" id="theme-toggle" aria-label="Toggle dark/light theme" title="Toggle dark / light theme">
+              <span class="theme-icon" id="theme-icon">🌙</span>
+            </button>
+          </div>
+        </nav>
+
+        <div class="header-actions">
+          <a class="button button-nav" href="booking.html">Book a Ride</a>
+          <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- HERO SECTION WITH BACKGROUND IMAGE -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-panel hero-products" style="background-image: url('assets/images/hero-products.jpg');">
+            <div class="hero-content">
+              <div class="hero-badge-row">
+                <span class="eyebrow">
+                  <span class="eyebrow-dot"></span>
+                  2026 Fleet • Road-Tested Quality • 3-Year Warranty
+                </span>
+                <span class="hero-status-pill"><span>●</span> 2026 Certified Lineup</span>
+              </div>
+              <h1>Choose Your Electric Ride by <span class="gradient-text">Range &amp; Riding Style</span>.</h1>
+              <p>Explore city commuters, folding portables, high-speed dual-motor cruisers, and versatile cargo e-bikes. Every vehicle is backed by our 3-year battery warranty and local showroom service bays.</p>
+              <div class="hero-actions">
+                <a class="button" href="booking.html">Schedule a Test Ride</a>
+                <a class="button-secondary" href="compare.html">Compare Side-by-Side</a>
+              </div>
+              <div class="hero-stats">
+                <div class="stat-card">
+                  <strong>8 Models</strong>
+                  <span>Certified Fleet</span>
+                </div>
+                <div class="stat-card">
+                  <strong>Up to 140 km</strong>
+                  <span>Max Single-Charge Range</span>
+                </div>
+                <div class="stat-card">
+                  <strong>₹89,999</strong>
+                  <span>Starting Showroom Price</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTS CATALOG (3 CARDS PER ROW, SINGLE-LINE SPECS, RUPEES) -->
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="badge-tag">Interactive Catalog</span>
+            <h2>Filter Our Electric Mobility Collection</h2>
+            <p>Filter by vehicle type or real-world battery range to narrow down the right model for your commute.</p>
+          </div>
+
+          <!-- FILTER CONTROLS -->
+          <div class="filter-bar" aria-label="Product filters">
+            <button class="filter-button active" type="button" data-filter="all">All Models</button>
+            <button class="filter-button" type="button" data-filter="scooter">🛴 E-Scooters</button>
+            <button class="filter-button" type="button" data-filter="bike">🚲 E-Bikes</button>
+            <button class="filter-button" type="button" data-filter="short">⚡ Up to 45 km</button>
+            <button class="filter-button" type="button" data-filter="mid">⚡ 45 to 80 km</button>
+            <button class="filter-button" type="button" data-filter="long">⚡ 80+ km Long Range</button>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding-inline: 0.25rem;">
+            <span style="font-size: 0.95rem; font-weight: 700; color: var(--muted);" data-product-count>8 models available</span>
+            <a href="compare.html" style="font-size: 0.92rem; font-weight: 700; color: var(--primary);">Open Full Specs Matrix →</a>
+          </div>
+
+          <!-- PRODUCTS GRID - 3 CARDS PER ROW -->
+          <div class="grid grid-3">
+            <!-- Product 1 -->
+            <article class="product-card" data-category="scooter" data-range="mid">
+              <div class="product-image-wrap">
+                <img src="assets/images/scooter-comet.jpg" alt="Comet Urban Pro electric scooter">
+                <span class="product-pill featured">Best Seller</span>
+              </div>
+              <div class="product-content">
+                <h3>Comet Urban Pro</h3>
+                <p>High-torque commuter scooter with front and rear dual suspension, LED headlight, and electronic anti-skid brakes.</p>
+                <div class="product-spec-row">
+                  <div class="spec-item">
+                    <small>Range</small>
+                    <strong>65 km</strong>
+                  </div>
+                  <div class="spec-item">
+                    <small>Speed</small>
+                    <strong>38 km/h</strong>
+                  </div>
+                  <div class="spec-item">
+                    <small>Charge</small>
+                    <strong>4.5 hrs</strong>
+                  </div>
+                </div>
+                <div class="price-row">
+                  <div class="price-tag">
+                    <small>Ex-Showroom</small>
+                    <strong>₹89,999</strong>
+                  </div>
+                  <a class="button button-sm" href="booking.html">Test Ride</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Product 2 -->
+            <article class="product-card" data-category="scooter" data-range="short">
+              <div class="product-image-wrap">
+                <img src="assets/images/scooter-swift.jpg" alt="Swift Fold S2 electric scooter">
+                <span class="product-pill">Ultra Light</span>
+              </div>
+              <div class="product-content">
+                <h3>Swift Fold S2</h3>
+                <p>Featherlight 12.8 kg aviation-grade alloy frame with one-click latch for smooth multi-modal train transit.</p>
+                <div class="product-spec-row">
+                  <div class="spec-item">
+                    <small>Range</small>
+                    <strong>38 km</strong>
+                  </div>
+                  <div class="spec-item">
+                    <small>Speed</small>
+                    <strong>25 km/h</strong>
+                  </div>
+                  <div class="spec-item">
+                    <small>Charge</small>
+                    <strong>3.5 hrs</strong>
+                  </div>
+                </div>
+                <div class="price-row">
+                  <div class="price-tag">
+                    <small>Ex-Showroom</small>
+                    <strong>₹64,999</strong>
+                  </div>
+                  <a class="button button-sm" href="booking.html">Test Ride</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Product 3 -->
+            <article class="product-card" data-category="bike" data-range="mid">
+              <div class="product-image-wrap">
+                <img src="assets/images/scooter-metro.jpg" alt="Metro Glide 500 electric bike">
+                <span class="product-pill">City E-Bike</span>
+              </div>
+              <div class="product-content">
+                <h3>Metro Glide 500</h3>
+                <p>Comfort-oriented step-through frame with smooth torque-sensing motor, rear luggage rack, and puncture-guard tires.</p>
+                <div class="product-spec-row">
+                  <div class="spec-item">
+                    <small>Range</small>
+                    <strong>58 km</strong>
+                  </div>
+                  <div class="spec-item">
+                    <small>Speed</small>
+                    <strong>32 km/h</strong>
+                  </div>
+                  <div class="spec-item">
+                    <small>Charge</small>
+                    <strong>4.0 hrs</strong>
+                  </div>
+                </div>
+                <div class="price-row">
+                  <div class="price-tag">
+                    <small>Ex-Showroom</small>
+                    <strong>₹1,29,999</strong>
+                  </div>
+                  <a class="button button-sm" href="booking.html">Test Ride</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Product 4 -->
+            <article class="product-card" data-category="bike" data-range="long">
+              <div class="product-image-wrap">
+                <img src="assets/images/scooter-trail.jpg" alt="Trail Current X adventure e-bike">
+                <span class="product-pill">All-Terrain</span>
+              </div>
+              <div class="product-content">
+                <h3>Trail Current X</h3>
+                <p>Rugged hybrid mountain e-bike with 100mm front suspension fork, high-capacity Samsung 840Wh battery, and 85Nm torque.</p>
+                <div class="product-spec-row">
+                  <div class="spec-item">
+                    <small>Range</small>
+                    <strong>102 km</strong>
+                  </div>
+                  <div class="spec-item">
+                    <small>Speed</small>
+                    <strong>42 km/h</strong>
+                  </div>
+                  <div class="spec-item">
+                    <small>Charge</small>
+                    <strong>5.5 hrs</strong>
+                  </div>
+                </div>
+                <div class="price-row">
+                  <div class="price-tag">
+                    <small>Ex-Showroom</small>
+                    <strong>₹1,69,999</strong>
+                  </div>
+                  <a class="button button-sm" href="booking.html">Test Ride</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Product 5 -->
+            <article class="product-card" data-category="scooter" data-range="long">
+              <div class="product-image-wrap">
+                <img src="assets/images/scooter-aero.jpg" alt="Volt Aero X performance scooter">
+                <span class="product-pill featured">Hyper Flagship</span>
+              </div>
+              <div class="product-content">
+                <h3>Volt Aero X</h3>
+                <p>Dual-motor flagship monster with 2x 600W brushless motors, dual hydraulic disc brakes, and 30-degree hill climbing ability.</p>
+                <div class="product-spec-row">
+                  <div class="spec-item">
+                    <small>Range</small>
+                    <strong>95 km</strong>
+                  </div>
+                  <div class="spec-item">
+                    <small>Speed</small>
+                    <strong>45 km/h</strong>
+                  </div>
+                  <div class="spec-item">
+                    <small>Charge</small>
+                    <strong>6.0 hrs</strong>
+                  </div>
+                </div>
+                <div class="price-row">
+                  <div class="price-tag">
+                    <small>Ex-Showroom</small>
+                    <strong>₹1,39,999</strong>
+                  </div>
+                  <a class="button button-sm" href="booking.html">Test Ride</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Product 6 -->
+            <article class="product-card" data-category="scooter" data-range="mid">
+              <div class="product-image-wrap">
+                <img src="assets/images/scooter-urban.jpg" alt="Urban Cruiser GT electric scooter">
+                <span class="product-pill">Premium Deck</span>
+              </div>
+              <div class="product-content">
+                <h3>Urban Cruiser GT</h3>
+                <p>Wide bamboo-inlaid deck, ergonomic sweep handlebars, extra-wide 10.5" air tires, and whisper-quiet motor operation.</p>
+                <div class="product-spec-row">
+                  <div class="spec-item">
+                    <small>Range</small>
+                    <strong>75 km</strong>
+                  </div>
+                  <div class="spec-item">
+                    <small>Speed</small>
+                    <strong>35 km/h</strong>
+                  </div>
+                  <div class="spec-item">
+                    <small>Charge</small>
+                    <strong>5.0 hrs</strong>
+                  </div>
+                </div>
+                <div class="price-row">
+                  <div class="price-tag">
+                    <small>Ex-Showroom</small>
+                    <strong>₹99,999</strong>
+                  </div>
+                  <a class="button button-sm" href="booking.html">Test Ride</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Product 7 -->
+            <article class="product-card" data-category="bike" data-range="long">
+              <div class="product-image-wrap">
+                <img src="assets/images/scooter-cargo.jpg" alt="Family Cargo Plus E electric utility bicycle">
+                <span class="product-pill">Cargo &amp; Family</span>
+              </div>
+              <div class="product-content">
+                <h3>Family Cargo+ E</h3>
+                <p>Heavy-duty reinforced cargo frame capable of carrying two child seats or 180 kg payload with dual center kickstand.</p>
+                <div class="product-spec-row">
+                  <div class="spec-item">
+                    <small>Range</small>
+                    <strong>88 km</strong>
+                  </div>
+                  <div class="spec-item">
+                    <small>Speed</small>
+                    <strong>32 km/h</strong>
+                  </div>
+                  <div class="spec-item">
+                    <small>Charge</small>
+                    <strong>5.0 hrs</strong>
+                  </div>
+                </div>
+                <div class="price-row">
+                  <div class="price-tag">
+                    <small>Ex-Showroom</small>
+                    <strong>₹1,89,999</strong>
+                  </div>
+                  <a class="button button-sm" href="booking.html">Test Ride</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Product 8 -->
+            <article class="product-card" data-category="scooter" data-range="short">
+              <div class="product-image-wrap">
+                <img src="assets/images/scooter-lite.jpg" alt="City Lite Go compact scooter">
+                <span class="product-pill">Starter Value</span>
+              </div>
+              <div class="product-content">
+                <h3>City Lite Go</h3>
+                <p>Simple, reliable, and approachable starter scooter designed for students and short inner-city transit routes.</p>
+                <div class="product-spec-row">
+                  <div class="spec-item">
+                    <small>Range</small>
+                    <strong>28 km</strong>
+                  </div>
+                  <div class="spec-item">
+                    <small>Speed</small>
+                    <strong>25 km/h</strong>
+                  </div>
+                  <div class="spec-item">
+                    <small>Charge</small>
+                    <strong>3.0 hrs</strong>
+                  </div>
+                </div>
+                <div class="price-row">
+                  <div class="price-tag">
+                    <small>Ex-Showroom</small>
+                    <strong>₹49,999</strong>
+                  </div>
+                  <a class="button button-sm" href="booking.html">Test Ride</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- BUYER'S GUIDE SECTION -->
+      <section class="section section-alt">
+        <div class="container split-layout">
+          <div>
+            <div class="page-intro" style="text-align: left; margin-bottom: 1.15rem;">
+              <span class="badge-tag" style="margin-inline: 0;">Buyer's Guide</span>
+              <h2>How to choose: Electric Scooter vs. Electric Bike?</h2>
+              <p>Both give you clean electric mobility, but their ergonomics and daily convenience differ depending on your routine.</p>
+            </div>
+            <div class="grid" style="gap: 1.15rem;">
+              <div class="card">
+                <h4 style="margin: 0 0 0.35rem; color: var(--text);">🛴 Choose an E-Scooter if:</h4>
+                <p style="margin: 0; color: var(--muted); font-size: 0.92rem;">
+                  You live in an apartment without bike parking, commute by metro part-way, or want a compact ride you can easily carry upstairs or keep under your office desk.
+                </p>
+              </div>
+              <div class="card">
+                <h4 style="margin: 0 0 0.35rem; color: var(--text);">🚲 Choose an E-Bike if:</h4>
+                <p style="margin: 0; color: var(--muted); font-size: 0.92rem;">
+                  Your commute is over 15 km each way, you carry groceries regularly, you want mild aerobic exercise with pedal assist, or frequently tackle bumpy uneven roads.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="media-frame media-frame-tall">
+            <img src="assets/images/section-guide.jpg" alt="Urban commuter comparing an electric scooter and an electric bike side-by-side in a city plaza">
+             
+          </div>
+        </div>
+      </section>
+
+      <!-- ACCESSORIES & UPGRADES SECTION -->
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="badge-tag">Rider Gear &amp; Upgrades</span>
+            <h2>Official Accessories &amp; Safety Upgrades</h2>
+            <p>Certified add-ons designed specifically for EcoRide electric scooters and bikes.</p>
+          </div>
+          <div class="grid grid-3">
+            <article class="card feature-card">
+              <div class="card-media-top">
+                <img src="assets/images/accessory-helmet.jpg" alt="Sleek smart Bluetooth electric scooter helmet with rear LED light">
+              </div>
+              <h3>Smart Bluetooth Helmet</h3>
+              <p>Integrated LED turn signals, bone-conduction audio speakers, and impact emergency SOS alert beacon.</p>
+              <div style="margin-top: auto; padding-top: 1rem; font-weight: 800; color: var(--primary);">₹3,499</div>
+            </article>
+            <article class="card feature-card">
+              <div class="card-media-top">
+                <img src="assets/images/accessory-charger.jpg" alt="High speed 4A express electric vehicle fast charger unit">
+              </div>
+              <h3>4A Express Fast Charger</h3>
+              <p>Cuts standard charging time by 45%. Features active thermal cooling fan and auto-cutoff when battery hits 100%.</p>
+              <div style="margin-top: auto; padding-top: 1rem; font-weight: 800; color: var(--primary);">₹2,999</div>
+            </article>
+            <article class="card feature-card">
+              <div class="card-media-top">
+                <img src="assets/images/accessory-bag.jpg" alt="Waterproof EVA hard-shell scooter front handlebar commuter bag">
+              </div>
+              <h3>Waterproof Commuter Bag</h3>
+              <p>Heavy-duty EVA hard-shell front handlebar bag with rainproof dual zippers and 3L capacity for your phone and tools.</p>
+              <div style="margin-top: auto; padding-top: 1rem; font-weight: 800; color: var(--primary);">₹1,799</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPARE BANNER -->
+      <section class="section section-alt">
+        <div class="container">
+          <div class="card card-callout-compare">
+            <span class="badge-tag">Need Side-by-Side Clarity?</span>
+            <h2>Compare Every Specification Side-by-Side</h2>
+            <p>
+              Use our interactive comparison tool to contrast speeds, ranges, motors, brake types, and calculate your exact monthly fuel savings in Rupees.
+            </p>
+            <div class="card-callout-actions">
+              <a class="button" href="compare.html">Open Compare &amp; Savings Calculator</a>
+              <a class="button-secondary" href="booking.html">Book Showroom Test Ride</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER - EQUAL ALIGNMENT -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand" href="index.html">
+            <span class="brand-mark">
+              <img src="assets/images/logo.svg" alt="EcoRide Hub Logo" class="brand-logo-img">
+            </span>
+            <div class="brand-text">
+              <span class="brand-title">EcoRide <span>Hub</span></span>
+              <span class="brand-sub">Smart Electric Mobility</span>
+            </div>
+          </a>
+          <p class="footer-desc">
+            Pioneering clean urban mobility with high-performance e-scooters, intelligent commuter e-bikes, and certified lifetime service care.
+          </p>
+          <div class="footer-socials" aria-label="EcoRide Social Media Links">
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="EcoRide Hub on X (formerly Twitter)" title="X (Twitter)">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="EcoRide Hub on Instagram" title="Instagram">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="EcoRide Hub on LinkedIn" title="LinkedIn">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="EcoRide Hub on Facebook" title="Facebook">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3>Explore Fleet</h3>
+          <ul class="footer-list">
+            <li><a href="products.html">All Electric Models</a></li>
+            <li><a href="products.html">Urban E-Scooters</a></li>
+            <li><a href="products.html">Commuter E-Bikes</a></li>
+            <li><a href="compare.html">Compare Specifications</a></li>
+            <li><a href="compare.html">Fuel Savings Calculator</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>About &amp; Care</h3>
+          <ul class="footer-list">
+            <li><a href="about.html">Our Eco Mission</a></li>
+            <li><a href="about.html">Battery Technology</a></li>
+            <li><a href="booking.html">Schedule Free Test Ride</a></li>
+            <li><a href="contact.html#showroom-map">Showroom Hours &amp; Map</a></li>
+            <li><a href="contact.html">Workshop Service Desk</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Showroom Hours</h3>
+          <ul class="footer-list">
+            <li>Mon - Fri: 9:30 AM - 7:00 PM</li>
+            <li>Saturday: 10:00 AM - 6:00 PM</li>
+            <li>Sunday: 11:00 AM - 4:00 PM</li>
+            <li>125 Green Avenue, Riverside</li>
+            <li>Tel: +1 (555) 024-8899</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p class="copyright-text">&copy; <span data-current-year></span> EcoRide Hub Inc. All rights reserved. Built for clean mobility.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

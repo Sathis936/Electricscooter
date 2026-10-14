@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="favBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b2c1f"/>
+      <stop offset="100%" stop-color="#041810"/>
+    </linearGradient>
+    <linearGradient id="favBolt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="40%" stop-color="#6ee7b7"/>
+      <stop offset="100%" stop-color="#00f5a0"/>
+    </linearGradient>
+    <linearGradient id="favRing" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#00f5a0"/>
+    </linearGradient>
+  </defs>
+  <!-- High Contrast Container for Browser Tab -->
+  <rect width="64" height="64" rx="18" fill="url(#favBg)"/>
+  <rect x="2" y="2" width="60" height="60" rx="16" stroke="url(#favRing)" stroke-width="2.5" fill="none"/>
+  
+  <!-- Mobility Velocity Arc -->
+  <path d="M 16 34 C 16 21 25 15 38 15 C 48 15 53 21 52 29 C 51 37 42 42 32 42" stroke="url(#favRing)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  
+  <!-- Crisp Center Lightning Bolt -->
+  <path d="M 36 10 L 21 32 L 31 32 L 27 52 L 45 28 L 35 28 Z" fill="url(#favBolt)"/>
+  
+  <!-- Electric Pulse Accent -->
+  <circle cx="48" cy="46" r="4.5" fill="#00f5a0"/>
+  <circle cx="48" cy="46" r="2" fill="#ffffff"/>
+</svg>
