@@ -237,10 +237,14 @@ document.addEventListener("DOMContentLoaded", () => {
       // Generate a realistic booking confirmation ID
       const randomCode = "ECO-" + Math.floor(10000 + Math.random() * 90000);
 
-      const successMessage =
-        formName === "booking"
-          ? `✓ Test ride reservation confirmed! Your booking reference is #${randomCode}. Our showroom concierge will contact you by SMS/call to finalize your preferred time slot.`
-          : `✓ Thank you! Your enquiry has been routed to our specialist team. We respond within 4 business hours with custom advice and pricing.`;
+      let successMessage = "";
+      if (formName === "booking") {
+        successMessage = `✓ Test ride reservation confirmed! Your booking reference is #${randomCode}. Our showroom concierge will contact you by SMS/call to finalize your preferred time slot.`;
+      } else if (formName === "service") {
+        successMessage = `✓ Service appointment confirmed! Your service token is #${randomCode}. Our workshop service manager will contact you with bay confirmation and arrival details.`;
+      } else {
+        successMessage = `✓ Thank you! Your enquiry has been routed to our specialist team. We respond within 4 business hours with custom advice and pricing.`;
+      }
 
       messageBox.className = "message-box is-visible success";
       messageBox.textContent = successMessage;
