@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="EcoRide Hub Certified Service — Authorized electric scooter maintenance, computerized battery capacity diagnostics, genuine spare parts, and doorstep service vans.">
-  <title>Certified EV Service &amp; Maintenance — EcoRide Hub</title>
+  <meta name="description" content="EcoRide Hub Certified Service &mdash; Authorized electric scooter maintenance, computerized battery capacity diagnostics, genuine spare parts, and doorstep service vans.">
+  <title>Certified EV Service &amp; Maintenance &mdash; EcoRide Hub</title>
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -256,17 +256,17 @@
             </div>
           </div>
 
-          <div class="card" style="padding: clamp(1.5rem, 3vw, 2.5rem);">
+          <div class="card form-card" id="service-form" style="padding: clamp(1.5rem, 3vw, 2.5rem);">
             <form id="service-booking-form" data-form="service" novalidate>
               <div class="form-grid">
                 <div class="field">
                   <label for="srv-name">Full Name *</label>
-                  <input id="srv-name" name="name" type="text" placeholder="e.g. Ramesh Kumar" required>
+                  <input id="srv-name" name="name" type="text" placeholder="e.g. Ramesh Kumar" required pattern="^[A-Za-z\s'-]{2,50}$" title="Name must contain letters only" maxlength="50" autocomplete="name">
                 </div>
 
                 <div class="field">
                   <label for="srv-phone">Phone Number *</label>
-                  <input id="srv-phone" name="phone" type="tel" placeholder="+91 98765 43210" required>
+                  <input id="srv-phone" name="phone" type="tel" placeholder="10-digit mobile number" required pattern="[0-9]{10}" title="Phone must contain 10 numbers only" maxlength="10" inputmode="numeric" autocomplete="tel">
                 </div>
 
                 <div class="field">

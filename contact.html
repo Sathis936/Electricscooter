@@ -38,19 +38,19 @@
           <div class="nav-dropdown" data-nav-dropdown>
             <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" data-dropdown-toggle>
               <span>Home</span>
-              <span class="dropdown-arrow">▾</span>
+              <span class="dropdown-arrow">&#9662;</span>
             </button>
             <div class="nav-dropdown-menu" role="menu">
               <a href="index.html" class="nav-dropdown-item" role="menuitem">
                 <div class="dropdown-item-header">
-                  <span class="dropdown-item-title">Home 1 — Urban Commuters</span>
+                  <span class="dropdown-item-title">Home 1 &mdash; Urban Commuters</span>
                   <span class="dropdown-item-tag">Flagship</span>
                 </div>
                 <p class="dropdown-item-desc">Smart cockpit display, daily commuter fleet &amp; specs</p>
               </a>
               <a href="home-2.html" class="nav-dropdown-item" role="menuitem">
                 <div class="dropdown-item-header">
-                  <span class="dropdown-item-title">Home 2 — Hyper Performance</span>
+                  <span class="dropdown-item-title">Home 2 &mdash; Hyper Performance</span>
                   <span class="dropdown-item-tag tag-hyper">New</span>
                 </div>
                 <p class="dropdown-item-desc">Dual-motor power, fast charging hubs &amp; 2026 fleet</p>
@@ -69,7 +69,7 @@
               <span class="util-text" id="rtl-text">RTL</span>
             </button>
             <button type="button" class="nav-btn-util" id="theme-toggle" aria-label="Toggle dark/light theme" title="Toggle dark / light theme">
-              <span class="theme-icon" id="theme-icon">🌙</span>
+              <span class="theme-icon" id="theme-icon">&#127769;</span>
             </button>
           </div>
         </nav>
@@ -94,9 +94,9 @@
               <div class="hero-badge-row">
                 <span class="eyebrow">
                   <span class="eyebrow-dot"></span>
-                  Local Showroom • Certified EV Workshop • Prompt Replies
+                  Local Showroom &bull; Certified EV Workshop &bull; Prompt Replies
                 </span>
-                <span class="hero-status-pill"><span>●</span> Flagship Showroom &amp; Service Bay</span>
+                <span class="hero-status-pill"><span>&bull;</span> Flagship Showroom &amp; Service Bay</span>
               </div>
               <h1>Visit Our Riverside Showroom or <span class="gradient-text">Speak with an EV Specialist</span>.</h1>
               <p>Have questions regarding battery life, hills on your commute, warranty coverage, or vehicle availability? Reach out through our priority form or drop by our showroom for a coffee and chat.</p>
@@ -135,21 +135,21 @@
             <article class="card contact-card" style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
                 <div class="store-badge" style="background: rgba(5, 150, 105, 0.15); color: var(--primary-dark); border-color: rgba(5, 150, 105, 0.3);">
-                  <span>●</span> Showroom Open Today until 7:00 PM
+                  <span>&bull;</span> Showroom Open Today until 7:00 PM
                 </div>
                 <h3 style="margin-top: 0.65rem;">Riverside Studio &amp; Workshop</h3>
                 <p style="color: var(--muted); font-size: 0.94rem;">
                   125 Green Avenue, Riverside District. Dedicated customer parking and free Level-2 EV fast chargers available on-site.
                 </p>
                 <ul class="footer-list" style="margin-top: 1.15rem;">
-                  <li>📞 <strong>Main Studio:</strong> +1 (555) 024-8899</li>
-                  <li>🛠️ <strong>Workshop Desk:</strong> +1 (555) 024-8890</li>
-                  <li>📧 <strong>General Inquiries:</strong> hello@ecoridehub.com</li>
+                  <li>&#128222; <strong>Main Studio:</strong> +1 (555) 024-8899</li>
+                  <li>&#128736; <strong>Workshop Desk:</strong> +1 (555) 024-8890</li>
+                  <li>&#128231; <strong>General Inquiries:</strong> hello@ecoridehub.com</li>
                 </ul>
               </div>
               <div style="margin-top: 1.25rem; padding-top: 0.85rem; border-top: 1px dashed var(--border);">
                 <a href="#showroom-map" class="button-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; width: 100%; justify-content: center;">
-                  <span>📍 View Location on Interactive Map ↓</span>
+                  <span>&#128205; View Location on Interactive Map &darr;</span>
                 </a>
               </div>
             </article>
@@ -167,7 +167,7 @@
               <div class="form-grid">
                 <div class="field">
                   <label for="contact-name">Full Name *</label>
-                  <input id="contact-name" name="name" type="text" placeholder="e.g. Priya Patel" required>
+                  <input id="contact-name" name="name" type="text" placeholder="e.g. Priya Patel" required pattern="^[A-Za-z\s'-]{2,50}$" title="Name must contain letters only" maxlength="50" autocomplete="name">
                 </div>
 
                 <div class="field">
@@ -177,7 +177,7 @@
 
                 <div class="field">
                   <label for="contact-phone">Phone Number *</label>
-                  <input id="contact-phone" name="phone" type="tel" placeholder="+91 98765 43210" required>
+                  <input id="contact-phone" name="phone" type="tel" placeholder="10-digit mobile number" required pattern="[0-9]{10}" title="Phone must contain 10 numbers only" maxlength="10" inputmode="numeric" autocomplete="tel">
                 </div>
 
                 <div class="field">
@@ -189,7 +189,7 @@
                     <option>Corporate Fleet &amp; Bulk Purchasing</option>
                     <option>Battery Health Check &amp; Workshop Repair</option>
                     <option>Accessories, Helmets &amp; Upgrades</option>
-                    <option>Financing &amp; 0% EMI Plans from ₹2,499/mo</option>
+                    <option>Financing &amp; 0% EMI Plans from &#8377;2,499/mo</option>
                   </select>
                 </div>
 
@@ -242,21 +242,21 @@
 
             <div class="map-info-bar">
               <div class="map-info-item">
-                <span class="map-info-icon">📍</span>
+                <span class="map-info-icon">&#128205;</span>
                 <div>
                   <strong>EcoRide Flagship Studio</strong>
                   <p>125 Green Avenue, Riverside District</p>
                 </div>
               </div>
               <div class="map-info-item">
-                <span class="map-info-icon">⚡</span>
+                <span class="map-info-icon">&#9889;</span>
                 <div>
                   <strong>Free EV Fast Charging</strong>
                   <p>4x Level-2 Customer Charging Bays</p>
                 </div>
               </div>
               <div class="map-info-item">
-                <span class="map-info-icon">🚇</span>
+                <span class="map-info-icon">&#128687;</span>
                 <div>
                   <strong>Transit Accessible</strong>
                   <p>2 Blocks from Riverside Metro Station</p>
@@ -264,7 +264,7 @@
               </div>
               <div class="map-info-action">
                 <a class="button" href="https://www.google.com/maps?q=125+Green+Avenue,+Riverside" target="_blank" rel="noopener noreferrer">
-                  <span>Get Directions</span> ↗
+                  <span>Get Directions</span> &#8599;
                 </a>
               </div>
             </div>

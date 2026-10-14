@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const syncThemeUI = (theme) => {
     const isDark = theme === "dark";
-    if (themeIcon) themeIcon.textContent = isDark ? "☀️" : "🌙";
+    if (themeIcon) themeIcon.textContent = isDark ? "\u2600\uFE0F" : "\uD83C\uDF19";
     if (themeText) themeText.textContent = isDark ? "Light" : "Dark";
     if (themeToggle) {
       themeToggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
@@ -172,12 +172,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const daysPerWeek = daysSelect ? parseFloat(daysSelect.value) : 5;
 
       if (distVal) distVal.textContent = `${dailyKm} km`;
-      if (fuelVal) fuelVal.textContent = `₹${fuelCostPerLitre.toFixed(0)}/L`;
+      if (fuelVal) fuelVal.textContent = `\u20B9${fuelCostPerLitre.toFixed(0)}/L`;
 
-      // Calculations in Indian Rupees (₹):
+      // Calculations in Indian Rupees (Rs / INR):
       // Average petrol scooter mileage: ~35 km/L
       // Electric scooter power consumption: ~0.024 kWh/km
-      // Domestic electricity tariff: ~₹8.00 / kWh
+      // Domestic electricity tariff: ~Rs 8.00 / kWh
       const daysPerMonth = (daysPerWeek * 52) / 12;
       const monthlyKm = dailyKm * daysPerMonth;
 
@@ -189,11 +189,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // Carbon savings: ~110g CO2 per km saved vs petrol engine
       const annualCo2Kg = Math.round((monthlyKm * 12 * 0.11));
 
-      // Payback months for an average ₹85,000 electric scooter:
-      const paybackMonths = annualSavings > 0 ? (85000 / monthlySavings).toFixed(1) : "—";
+      // Payback months for an average Rs 85,000 electric scooter:
+      const paybackMonths = annualSavings > 0 ? (85000 / monthlySavings).toFixed(1) : "\u2014";
 
-      if (monthlySaveEl) monthlySaveEl.textContent = `₹${Math.round(monthlySavings).toLocaleString('en-IN')}`;
-      if (annualSaveEl) annualSaveEl.textContent = `₹${Math.round(annualSavings).toLocaleString('en-IN')}`;
+      if (monthlySaveEl) monthlySaveEl.textContent = `\u20B9${Math.round(monthlySavings).toLocaleString('en-IN')}`;
+      if (annualSaveEl) annualSaveEl.textContent = `\u20B9${Math.round(annualSavings).toLocaleString('en-IN')}`;
       if (co2SaveEl) co2SaveEl.textContent = `${annualCo2Kg} kg`;
       if (paybackEl) paybackEl.textContent = `${paybackMonths} mo`;
     };
@@ -204,7 +204,55 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCalculator();
   }
 
-  // 5. FORM SUBMISSION VALIDATION & CONFIRMATION
+  // 5. FORM SUBMISSION VALIDATION & FIELD-LEVEL ENFORCEMENT
+  // A. Strict Live Input Filtering: Names accept letters only; Phones accept numbers only
+  const nameInputs = document.querySelectorAll('input[name="name"], input[id*="name"]');
+  nameInputs.forEach((input) => {
+    input.addEventListener("input", (e) => {
+      // Strip any numbers or special characters other than letters, spaces, hyphens, and apostrophes
+      const cleaned = e.target.value.replace(/[^a-zA-Z\s'-]/g, "");
+      if (e.target.value !== cleaned) {
+        e.target.value = cleaned;
+      }
+      if (input.classList.contains("is-invalid") && cleaned.trim().length >= 2) {
+        input.classList.remove("is-invalid");
+      }
+    });
+
+    input.addEventListener("blur", () => {
+      const val = input.value.trim();
+      if (val && (val.length < 2 || /[^a-zA-Z\s'-]/.test(val))) {
+        input.classList.add("is-invalid");
+      } else if (val) {
+        input.classList.remove("is-invalid");
+      }
+    });
+  });
+
+  const phoneInputs = document.querySelectorAll('input[name="phone"], input[type="tel"], input[id*="phone"]');
+  phoneInputs.forEach((input) => {
+    input.addEventListener("input", (e) => {
+      // Numbers alone: strip any non-digit character and cap at 10 digits
+      const digitsOnly = e.target.value.replace(/\D/g, "").slice(0, 10);
+      if (e.target.value !== digitsOnly) {
+        e.target.value = digitsOnly;
+      }
+      if (input.classList.contains("is-invalid") && digitsOnly.length === 10) {
+        input.classList.remove("is-invalid");
+      }
+    });
+
+    input.addEventListener("blur", () => {
+      const digits = input.value.replace(/\D/g, "");
+      if (digits && digits.length !== 10) {
+        input.classList.add("is-invalid");
+      } else if (digits) {
+        input.classList.remove("is-invalid");
+      }
+    });
+  });
+
+  // B. Comprehensive Form Submission Validation
   const forms = document.querySelectorAll("[data-form]");
 
   forms.forEach((form) => {
@@ -214,41 +262,108 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
 
       const formName = form.dataset.form;
-      const requiredFields = form.querySelectorAll("[required]");
-      let valid = true;
+      const allInputs = form.querySelectorAll("input, select, textarea");
+      let firstInvalidField = null;
+      let errorMessage = "";
 
-      requiredFields.forEach((field) => {
+      // Clear previous error states
+      allInputs.forEach((f) => f.classList.remove("is-invalid"));
+
+      // 1. Check required fields
+      const requiredFields = form.querySelectorAll("[required]");
+      for (const field of requiredFields) {
         if (field.type === "checkbox") {
-          if (!field.checked) valid = false;
+          if (!field.checked) {
+            field.classList.add("is-invalid");
+            if (!firstInvalidField) {
+              firstInvalidField = field;
+              errorMessage = "Please accept the required consent terms before submitting.";
+            }
+          }
         } else if (!field.value.trim()) {
-          valid = false;
+          field.classList.add("is-invalid");
+          if (!firstInvalidField) {
+            firstInvalidField = field;
+            const label = form.querySelector(`label[for="${field.id}"]`);
+            const labelText = label ? label.textContent.replace("*", "").trim() : "required fields";
+            errorMessage = `Please fill out the "${labelText}" field.`;
+          }
         }
-      });
+      }
+
+      // 2. Validate Name fields specifically: letters and spaces only
+      const formNameInput = form.querySelector('input[name="name"], input[id*="name"]');
+      if (formNameInput && formNameInput.value.trim()) {
+        const nameVal = formNameInput.value.trim();
+        if (nameVal.length < 2) {
+          formNameInput.classList.add("is-invalid");
+          if (!firstInvalidField) {
+            firstInvalidField = formNameInput;
+            errorMessage = "Name error: Full name must be at least 2 characters long.";
+          }
+        } else if (/[^a-zA-Z\s'-]/.test(nameVal)) {
+          formNameInput.classList.add("is-invalid");
+          if (!firstInvalidField) {
+            firstInvalidField = formNameInput;
+            errorMessage = "Name error: Name should contain letters only (numbers and symbols are not allowed).";
+          }
+        }
+      }
+
+      // 3. Validate Phone fields specifically: 10 digits only, numbers alone
+      const formPhoneInput = form.querySelector('input[name="phone"], input[type="tel"], input[id*="phone"]');
+      if (formPhoneInput && formPhoneInput.value.trim()) {
+        const phoneDigits = formPhoneInput.value.replace(/\D/g, "");
+        if (phoneDigits.length !== 10) {
+          formPhoneInput.classList.add("is-invalid");
+          if (!firstInvalidField) {
+            firstInvalidField = formPhoneInput;
+            errorMessage = "Contact error: Phone number should contain numbers alone (must be exactly 10 digits).";
+          }
+        }
+      }
+
+      // 4. Validate Email if present
+      const formEmailInput = form.querySelector('input[type="email"], input[name="email"]');
+      if (formEmailInput && formEmailInput.value.trim()) {
+        const emailVal = formEmailInput.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailVal)) {
+          formEmailInput.classList.add("is-invalid");
+          if (!firstInvalidField) {
+            firstInvalidField = formEmailInput;
+            errorMessage = "Email error: Please enter a valid email address (e.g. name@example.com).";
+          }
+        }
+      }
 
       if (!messageBox) return;
 
-      if (!valid) {
+      if (firstInvalidField) {
         messageBox.className = "message-box is-visible error";
-        messageBox.textContent =
-          "Please fill out all required fields marked with * before submitting.";
+        messageBox.textContent = errorMessage || "Please correct the highlighted errors before submitting.";
+        firstInvalidField.focus();
+        messageBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
         return;
       }
 
-      // Generate a realistic booking confirmation ID
+      // If valid, generate confirmation reference and display success
       const randomCode = "ECO-" + Math.floor(10000 + Math.random() * 90000);
-
       let successMessage = "";
       if (formName === "booking") {
-        successMessage = `✓ Test ride reservation confirmed! Your booking reference is #${randomCode}. Our showroom concierge will contact you by SMS/call to finalize your preferred time slot.`;
+        successMessage = `\u2713 Test ride reservation confirmed! Your booking reference is #${randomCode}. Our showroom concierge will contact you by SMS/call to finalize your preferred time slot.`;
       } else if (formName === "service") {
-        successMessage = `✓ Service appointment confirmed! Your service token is #${randomCode}. Our workshop service manager will contact you with bay confirmation and arrival details.`;
+        successMessage = `\u2713 Service appointment confirmed! Your service token is #${randomCode}. Our workshop service manager will contact you with bay confirmation and arrival details.`;
       } else {
-        successMessage = `✓ Thank you! Your enquiry has been routed to our specialist team. We respond within 4 business hours with custom advice and pricing.`;
+        successMessage = `\u2713 Thank you! Your enquiry has been routed to our specialist team. We respond within 4 business hours with custom advice and pricing.`;
       }
 
       messageBox.className = "message-box is-visible success";
       messageBox.textContent = successMessage;
       form.reset();
+
+      // Clear any remaining validation classes
+      allInputs.forEach((f) => f.classList.remove("is-invalid", "is-valid"));
 
       messageBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
@@ -280,10 +395,11 @@ document.addEventListener("DOMContentLoaded", () => {
       labelSpan.className = "custom-select-label";
       const currentOpt = select.options[select.selectedIndex] || select.options[0];
       labelSpan.textContent = currentOpt ? currentOpt.textContent : "";
+      if (currentOpt) trigger.title = currentOpt.textContent;
 
       const arrowSpan = document.createElement("span");
       arrowSpan.className = "custom-select-arrow";
-      arrowSpan.textContent = "▾";
+      arrowSpan.innerHTML = "&#9662;";
 
       trigger.appendChild(labelSpan);
       trigger.appendChild(arrowSpan);
@@ -305,6 +421,7 @@ document.addEventListener("DOMContentLoaded", () => {
             e.stopPropagation();
             select.selectedIndex = idx;
             labelSpan.textContent = opt.textContent;
+            trigger.title = opt.textContent;
             dropdown
               .querySelectorAll(".custom-select-option")
               .forEach((o) => o.classList.remove("is-selected"));
@@ -342,6 +459,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const sel = select.options[select.selectedIndex];
         if (sel) {
           labelSpan.textContent = sel.textContent;
+          trigger.title = sel.textContent;
           dropdown.querySelectorAll(".custom-select-option").forEach((o, i) => {
             o.classList.toggle("is-selected", i === select.selectedIndex);
           });
@@ -355,6 +473,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const first = select.options[select.selectedIndex] || select.options[0];
             if (first) {
               labelSpan.textContent = first.textContent;
+              trigger.title = first.textContent;
               dropdown.querySelectorAll(".custom-select-option").forEach((o, i) => {
                 o.classList.toggle("is-selected", i === select.selectedIndex);
               });
